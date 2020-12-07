@@ -10,6 +10,6 @@ If you are new to the world of web development - this is a good place to start.
 ***
 ### Nice to have
 - VS Code
-- Kinvey account
+- Kinvey account...
 ***
 For more information check our [Wiki!](https://github.com/BaiGanio/js4b/wiki)
