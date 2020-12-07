@@ -7,6 +7,7 @@ If you are new to the world of web development - this is a good place to start.
 - World should see our project - gh-pages 
 - Better UI & UEX - Bootstrap
 - Data storage & manipulation (BaaS) - Kinvey
+- Better knowing how JavaScript manipulates the DOM
 ***
 ### Nice to have
 - VS Code
