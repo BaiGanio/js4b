@@ -1,10 +1,11 @@
-# js4b
-Simple tutorial for beginners - future web developers who are intrested in creation of websites with JavaScript
-
-- Deployment to GitHub pages is a main goal. World should see our project
-- Enriched with Bootstrap stylings for better UI & UEX
+# js4b (JavaScript for beginners) 
+Simple tutorial for beginners - future web developers who are intrested in creation of dynamic websites with pure JavaScript
 - If you are new to the world of web development - this is a good place to start
-- Data storage & manipulation with Kinvey as BaaS
+***
+## Main goal
+- Deployment to gh-pages - world should see our project
+- Better UI & UEX with Bootstrap
+- Data storage & manipulation (BaaS) with Kinvey
 - Project structure of 2 folders and 7 files
 ***
 
