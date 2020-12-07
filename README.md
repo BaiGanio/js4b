@@ -12,4 +12,15 @@ If you are new to the world of web development - this is a good place to start.
 - VS Code
 - Kinvey account...
 ***
+### Local development
+- Execute `index.html` with your favorite browser
+***
+### Kinvey setup
+- Create collection
+- Create configuration variables in .. file
+***
+### gh-pages deploymemt
+- Configure gh-pages
+- Push your changes
+***
 For more information check our [Wiki!](https://github.com/BaiGanio/js4b/wiki)
