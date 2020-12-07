@@ -8,4 +8,4 @@ Basic tutorial for web developers who are @ beginners level and are intrested in
 
 ***
 
-For more information check our Wiki!
+For more information check our [Wiki!](https://github.com/BaiGanio/js4b/wiki)
