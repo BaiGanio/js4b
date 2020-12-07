@@ -4,9 +4,9 @@ If you are new to the world of web development - this is a good place to start.
 - Project structure of 2 folders and 7 files
 ***
 ### Main goal
-- Deployment to gh-pages - world should see our project
-- Better UI & UEX with Bootstrap
-- Data storage & manipulation (BaaS) with Kinvey
+- World should see our project - gh-pages 
+- Better UI & UEX - Bootstrap
+- Data storage & manipulation (BaaS) - Kinvey
 ***
 ### Nice to have
 - VS Code
