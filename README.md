@@ -1,5 +1,5 @@
 # js4b (JavaScript for web developers) - _beginners edition_ 
-If you are new to the world of web development - this is a good place to start. 
+If you are new to the world of web development - this is a good place to start 
 - Simple tutorial for future web developers, lecturers & teachers, who are intrested in creation of dynamic websites
 - Example for small business portfolio website with static content
 - Pure JavaScript development & Bootstrap styling
