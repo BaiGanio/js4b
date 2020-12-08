@@ -12,5 +12,6 @@ If you are new to the world of web development - this is a good place to start.
 ***
 ### Local development
 - Execute `index.html` with your favorite browser
+- Edit project files via VS Code
 ***
 For more information check our [Wiki!](https://github.com/BaiGanio/js4b/wiki)
