@@ -18,12 +18,15 @@ function processResponseData(data){
     document.getElementById("origin").innerText = data.origin.name;
     document.getElementById("species").innerText = data.species;
     document.getElementById("status").innerText = data.status;
+
+    document.getElementById("save").disabled = false;
 }
 function clearElements(){
     document.getElementById("charId").innerText = "N/A";
     document.getElementById("name").innerText =  "N/A";
-    document.getElementById("avatar").src = "";
+    document.getElementById("avatar").src = "images/no-image.jpg";
     document.getElementById("origin").innerText =  "N/A";
     document.getElementById("species").innerText =  "N/A";
     document.getElementById("status").innerText =  "N/A";
+    document.getElementById("save").disabled = true;
 }

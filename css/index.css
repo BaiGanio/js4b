@@ -9,6 +9,9 @@ body{
     width: 60%;
     margin: 0 auto;
 }
+.card-wrapper{
+    margin-top: 10px;
+}
 .card{
     width: 20rem; 
     margin: 0 auto; 
@@ -23,3 +26,8 @@ body{
 footer{
     margin-top: 10px;
 }
+
+
+
+  
+ 
