@@ -1,12 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>JS4B</title>
+ <head>
+    <title>Demo App | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="snackbar.css" media="screen" />
 </head>
+
 <body>
 
-<h1>Welcome to JavaScript for beginners(JS4B) website</h1>
-<p>This is a simple dummy message</p>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Demo App</span>
+        </div>
+    </nav>
 
+    <div class="wrapper container-fluid">
+
+        <h1>This is an example of using Bootstrap for styling...</h1>
+        <h1 id="change">click <span onclick="functionToExecute()">(here)</span> & text will change!</h1>
+        <button type="button" class="btn btn-primary" onclick="fetchData()">Fetch Data</button>
+        from <span>https://rickandmortyapi.com/api/character/</span><span id="charRndId"></span>    
+
+      <div style="margin-top: 10px;">
+        <div id="hide" class="card">
+            <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="name">Card title</h5>
+                <p class="card-text" >Id: <span id="charId">N/A</span></p>
+                <p class="card-text" >Origin: <span id="origin">N/A</span></p>
+                <p class="card-text">Species: <span id="species">N/A</span></p>
+                <p class="card-text">Status: <span  id="status">N/A</span></p>
+                <button onclick="alert('Waiting for internal API..')">Save Me</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+        Demo App v 0.1
+    </footer>
+
+    <div id="snackbar"></div>
+
+    <script>
+        function  functionToExecute(){
+            document.getElementById("change").innerText = "& fetching data from external API";
+            showSnackbar("You successfully changed the text ;)");
+        }
+        function fetchData() {
+            var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
+            document.getElementById("charRndId").innerText = rnd;
+            var url = "https://rickandmortyapi.com/api/character/" + rnd;
+            fetchIt(url);
+        }
+    </script>
+    <script type="text/javascript" src="fetch.js"></script>
+    <script type="text/javascript" src="snackbar.js"></script>
 </body>
-</html> 
+
+</html>

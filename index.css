@@ -1,0 +1,25 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+}
+#change > span:hover{
+    cursor: pointer;
+}
+#avatar{
+    width: 60%;
+    margin: 0 auto;
+}
+.card{
+    width: 20rem; 
+    margin: 0 auto; 
+    padding: 10px; 
+}
+.card-text{
+    text-align: left;
+}
+.card-text > span{
+    text-align: center;
+}
+footer{
+    margin-top: 10px;
+}
