@@ -34,6 +34,8 @@
 
         <h3>This is an example of fetching data from external API, using Bootstrap for styling... </h3>
         <h3 id="change">click <span onclick="functionToExecute()">(here)</span> & text will change!</h3>
+        <h1 class="title">Saved Characters</h1>
+        <hr>
         <div class="row card-wrapper">
             <div class="col-md-3 card">
                 <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
@@ -43,6 +45,7 @@
                     <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
+                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
                 </div>
             </div>
             <div class="col-md-3 card">
@@ -53,6 +56,7 @@
                     <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
+                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
                 </div>
             </div>
             <div class="col-md-3 card">
@@ -63,6 +67,7 @@
                     <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
+                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
                 </div>
             </div>
             <div class="col-md-3 card">
@@ -73,46 +78,7 @@
                     <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Char Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
+                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
                 </div>
             </div>
         </div> 
