@@ -1,5 +1,5 @@
  <head>
-    <title>Demo App | Home</title>
+    <title>JS4B App | Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/snackbar.css" media="screen" />
@@ -7,9 +7,20 @@
 
 <body>
 
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Demo App</span>
+            <a class="navbar-brand" href="#">JS4B App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="#">Saved</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </div>
+            </div>
         </div>
     </nav>
 
@@ -29,17 +40,19 @@
                 <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                 <p class="card-text">Species: <span id="species">N/A</span></p>
                 <p class="card-text">Status: <span  id="status">N/A</span></p>
-                <button onclick="alert('Waiting for internal API..')">Save Me</button>
+                <button onclick="showAlertSnackbar('Waiting for further API implementation... Available soon!')">Save Me</button>
             </div>
         </div>
       </div>
     </div>
 
     <footer>
-        Demo App v 0.1
+        JS4B App v 0.1
     </footer>
 
-    <div id="snackbar"></div>
+    <div id="snackbar-container">
+        <div id="snackbar"></div>
+    </div>
 
     <script>
         function  functionToExecute(){
