@@ -63,7 +63,7 @@
             showSnackbar("You successfully changed the text ;)");
         }
         function fetchData() {
-            var rnd = Math.floor(Math.random() * (10000 - 1)) + 1;
+            var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
             document.getElementById("charRndId").innerText = rnd;
             var url = "https://rickandmortyapi.com/api/character/" + rnd;
             fetchIt(url);
