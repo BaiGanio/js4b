@@ -8,20 +8,20 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/snackbar.css" media="screen" />
     
-    <title>JS4B | Home</title>
+    <title>JS4B | Liked</title>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">JS4B</a>
+            <a class="navbar-brand" href="index.html">JS4B</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 <a class="nav-link" href="saved.html">Saved</a>
                 <a class="nav-link" href="liked.html">Liked</a>
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -32,36 +32,42 @@
 
     <div class="wrapper container-fluid">
 
-        <h3>This is an example of using Bootstrap for styling...</h3>
-        <h3 id="change">click <span onclick="functionToExecute()">(here)</span> & text will change!</h3>
-        <button class="btn btn-primary" onclick="fetchData()">Fetch Data</button>
-        from <span>https://rickandmortyapi.com/api/character/</span><span id="charRndId"></span>    
+        <h3>This is an example of fetching data from external API & using Bootstrap table for styling</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Char Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Region</th>
+                <th scope="col">Likes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>wtf</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
 
-        <div class="card-wrapper">
-            <div id="hide" class="card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Char Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="save" onclick="showAlertSnackbar('Available soon!')" disabled>Save</button>
-                </div>
-            </div>
-        </div> 
         <footer>
             <p>&copy; JS4B App v 0.1 | Pure JS + Bootstrap shugar</p>
             <p>Developed by <a target="_blank" href="https://github.com/BaiGanio">L. Kikov</a></p>
         </footer>
-
-        <div id="snackbar"></div>
-    </div>
-
-    <div class="loader">
-        <div class="inner one"></div>
-        <div class="inner two"></div>
-        <div class="inner three"></div>
     </div>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -69,7 +75,7 @@
     <script type="text/javascript" src="js/snackbar.js"></script>
     <script>
         function  functionToExecute(){
-            document.getElementById("change").innerText = "& fetching data from external API";
+            document.getElementById("change").innerText = "& jQuery for stuffs";
             showSnackbar("You successfully changed the text ;)");
         }
         function fetchData() {
