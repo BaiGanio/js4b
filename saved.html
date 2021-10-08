@@ -8,20 +8,20 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/snackbar.css" media="screen" />
     
-    <title>JS4B | Home</title>
+    <title>JS4B | Saved</title>
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">JS4B</a>
+            <a class="navbar-brand" href="index.html">JS4B</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 <a class="nav-link" href="saved.html">Saved</a>
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </div>
@@ -31,13 +31,10 @@
 
     <div class="wrapper container-fluid">
 
-        <h3>This is an example of using Bootstrap for styling...</h3>
+        <h3>This is an example of fetching data from external API, using Bootstrap for styling... </h3>
         <h3 id="change">click <span onclick="functionToExecute()">(here)</span> & text will change!</h3>
-        <button class="btn btn-primary" onclick="fetchData()">Fetch Data</button>
-        from <span>https://rickandmortyapi.com/api/character/</span><span id="charRndId"></span>    
-
-        <div class="card-wrapper">
-            <div id="hide" class="card">
+        <div class="row card-wrapper">
+            <div class="col-md-3 card">
                 <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" id="name">Card title</h5>
@@ -45,7 +42,36 @@
                     <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="save" onclick="showAlertSnackbar('Available soon!')" disabled>Save</button>
+                </div>
+            </div>
+            <div class="col-md-3 card">
+                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="name">Card title</h5>
+                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
+                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
+                    <p class="card-text">Species: <span id="species">N/A</span></p>
+                    <p class="card-text">Status: <span  id="status">N/A</span></p>
+                </div>
+            </div>
+            <div class="col-md-3 card">
+                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="name">Card title</h5>
+                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
+                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
+                    <p class="card-text">Species: <span id="species">N/A</span></p>
+                    <p class="card-text">Status: <span  id="status">N/A</span></p>
+                </div>
+            </div>
+            <div class="col-md-3 card">
+                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="name">Card title</h5>
+                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
+                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
+                    <p class="card-text">Species: <span id="species">N/A</span></p>
+                    <p class="card-text">Status: <span  id="status">N/A</span></p>
                 </div>
             </div>
         </div> 
@@ -67,7 +93,7 @@
     <script type="text/javascript" src="js/snackbar.js"></script>
     <script>
         function  functionToExecute(){
-            document.getElementById("change").innerText = "& fetching data from external API";
+            document.getElementById("change").innerText = "& jQuery for stuffs";
             showSnackbar("You successfully changed the text ;)");
         }
         function fetchData() {
