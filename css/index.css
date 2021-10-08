@@ -15,6 +15,10 @@ body{
     -webkit-text-stroke-color: black;
     color: white;
 }
+#author{
+    font-family: 'Alsandra';
+    font-size: 1.4em;
+}
 #change > span:hover{
     cursor: pointer;
 }

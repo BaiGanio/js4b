@@ -32,8 +32,9 @@
 
     <div class="wrapper container-fluid">
 
-        <h3>This is an example of using Bootstrap for styling...</h3>
-        <h3 id="change">click <span onclick="functionToExecute()">(here)</span> & text will change!</h3>
+        <h3>This is an example of using Bootstrap for styling
+            <span id="change">... click <span onclick="functionToExecute()">(here)</span> & text will change!</span>
+        </h3>
         <button class="btn btn-primary" onclick="fetchData()">Fetch Data</button>
         from <span>https://rickandmortyapi.com/api/character/</span><span id="charRndId"></span>    
 
@@ -52,7 +53,7 @@
         </div> 
         <footer>
             <p>&copy; JS4B App v 0.1 | Pure JS + Bootstrap shugar</p>
-            <p>Developed by <a target="_blank" href="https://github.com/BaiGanio">L. Kikov</a></p>
+            <p>Developed by <a id="author" target="_blank" href="https://github.com/BaiGanio">L. Kikov</a></p>
         </footer>
 
         <div id="snackbar"></div>
