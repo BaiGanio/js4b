@@ -5,8 +5,8 @@ If you are new to the world of web development - this is a good place to start
 - Pure JavaScript development & Bootstrap styling
 - Project structure of 3 folders and 7 files
 - Free APIs for fetching data
- - https://rickandmortyapi.com/api/character/
- - https://finalspaceapi.com/api/v0/character/
+  - https://rickandmortyapi.com/api/character/
+  - https://finalspaceapi.com/api/v0/character/
 ***
 ### Main goal
 - World should see our project - gh-pages 
