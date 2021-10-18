@@ -47,7 +47,7 @@
                     <p class="card-text" >Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="save" class="btn btn-primary" onclick="showAlertSnackbar('Available soon!')" disabled>Save</button>
+                    <button id="save" class="btn btn-primary" onclick="saveData()" disabled>Save</button>
                 </div>
             </div>
         </div> 
@@ -78,6 +78,10 @@
             document.getElementById("charRndId").innerText = rnd;
             var url = "https://rickandmortyapi.com/api/character/" + rnd;
             fetchIt(url);
+        }
+        function saveData(){
+            var url1 = "https://localhost:44321/api/characters/";
+            saveIt(url1);           
         }
     </script>
 </body>
