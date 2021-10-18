@@ -1,4 +1,9 @@
-function fetchIt(url){
+
+var url = "https://characters-api.azurewebsites.net/api/characters/"
+function fetchIt(){
+    var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
+    document.getElementById("charRndId").innerText = rnd;
+    url +=  rnd;
     fetch(url)
     .then(response => response.json())
     .then((data) => {
@@ -12,7 +17,7 @@ function fetchIt(url){
     .catch(error => showAlertSnackbar(error));
 }
 
-function saveIt(url){
+function saveIt(){
     var params = {
         CharId: document.getElementById("charId").innerText,
         Name: document.getElementById("name").innerText,
@@ -44,6 +49,10 @@ function saveIt(url){
         document.getElementById("save").disabled = true;
         showAlertSnackbar(error);
     });
+}
+
+function updateIt(id){
+    alert('wtf ' + id)
 }
 
 function processResponseData(data){

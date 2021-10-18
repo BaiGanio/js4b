@@ -11,7 +11,7 @@
     <title>JS4B | Saved</title>
 </head>
 
-<body>
+<body onload="fetchSaved();">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -35,53 +35,10 @@
         <h3>This is an example of fetching data from external API, using Bootstrap for styling
             <span id="change">... click <span onclick="functionToExecute()">(here)</span> & text will change!</span>
         </h3>
-        <h1 class="title">Saved Characters</h1>
+        <h1 class="title">Saved Characters: <span id='totalCharacters'>0</span></h1>
         <hr>
         <div class="row card-wrapper">
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Char Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
-                </div>
-            </div>
-            <div class="col-md-3 card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text" >Id: <span id="charId">N/A</span></p>
-                    <p class="card-text" >Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="like" class="btn btn-primary" onclick="showSuccessSnackbar('You successfully liked character with id: ...')">Like</button>
-                </div>
-            </div>
+            <!-- https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1 -->
         </div> 
         <footer>
             <p>&copy; JS4B App v 0.1 | Pure JS + Bootstrap sugar</p>
@@ -105,13 +62,43 @@
             document.getElementById("change").innerText = "& jQuery for stuffs";
             showSnackbar("You successfully changed the text ;)");
         }
-        function fetchData() {
-            var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
-            document.getElementById("charRndId").innerText = rnd;
-            var url = "https://rickandmortyapi.com/api/character/" + rnd;
-            fetchIt(url);
+        function fetchSaved() {
+            fetch('https://characters-api.azurewebsites.net/api/characters/')
+            .then(response => response.json())
+            .then((data) => {
+                var total = 0;
+                var elem = $('.card-wrapper');
+                data.forEach(element => {
+                    total++;
+                    var id = element.id.innerText;
+                    elem.append( 
+                        $('<div/>')
+                            .addClass("col-md-3 card")
+                            .append($('<img class="avatar"></img>').attr('src', element.avatar))
+                            .append(
+                                $('<div/>')
+                                    .addClass('card-body')
+                                    .append($('<h5 class="card-title"></h5>').text(element.name))
+                                    .append($('<p class="card-text" ></p>').text('Char Id: ' + element.charId))
+                                    .append($('<p class="card-text" ></p>').text('Origin: ' + element.origin))
+                                    .append($('<p class="card-text" ></p>').text('Species: ' + element.species))
+                                    .append($('<p class="card-text" ></p>').text('Status: ' + element.status))
+                                    .append($('<p class="card-text" ></p>').text('Likes: ' + element.likes))
+                                    .append($('<button class="btn btn-primary" onclick="update(id)">Like</button>'))
+                            )
+                    );
+                });
+                $('#totalCharacters').text(total);
+            })
+            .catch(error => showAlertSnackbar(error));
+        }
+        function update(id){
+            console.log(id);
+            var elem = $('.card-wrapper');
+          alert(id);
         }
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 </body>
 
 </html>

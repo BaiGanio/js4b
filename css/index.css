@@ -22,7 +22,7 @@ body{
 #change > span:hover{
     cursor: pointer;
 }
-#avatar{
+.avatar{
     width: 60%;
     margin: 0 auto;
 }
