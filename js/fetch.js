@@ -13,27 +13,22 @@ function fetchIt(url){
 }
 
 function saveIt(url){
-    var avatar = document.getElementById("avatar").src;
-    var origin = document.getElementById("origin").innerText;
-    var species = document.getElementById("species").innerText;
-    var status = document.getElementById("status").innerText;
-
-    var data = {
+    var params = {
         CharId: document.getElementById("charId").innerText,
         Name: document.getElementById("name").innerText,
-        Avatar : avatar,
-        Origin : origin,
-        Species : species,
-        Status : status
+        Avatar : document.getElementById("avatar").src,
+        Origin : document.getElementById("origin").innerText,
+        Species : document.getElementById("species").innerText,
+        Status : document.getElementById("status").innerText
     };
-    console.log(data );
+    
     var options = {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         method: 'POST',
-        body: JSON.stringify( data )  
+        body: JSON.stringify( params )  
     };
 
     fetch(url, options)
