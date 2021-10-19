@@ -1,5 +1,5 @@
-
 var url = "https://characters-api.azurewebsites.net/api/characters/"
+
 function fetchIt(){
     var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
     document.getElementById("charRndId").innerText = rnd;

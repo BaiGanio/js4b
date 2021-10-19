@@ -1,8 +1,9 @@
-body {
+/* body {
     background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%);
-  }
+  } */
   
   .loader {
+    display:    none;
     position: absolute;
     top: calc(50% - 32px);
     left: calc(50% - 32px);
