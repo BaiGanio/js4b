@@ -59,6 +59,7 @@
     <script type="text/javascript" src="js/fetch.js"></script>
     <script type="text/javascript" src="js/snackbar.js"></script>
     <script>
+        var characters;
         function  functionToExecute(){
             document.getElementById("change").innerText = "& jQuery for stuffs";
             showSnackbar("You successfully changed the text ;)");
@@ -68,11 +69,12 @@
             fetch('https://characters-api.azurewebsites.net/api/characters/')
             .then(response => response.json())
             .then((data) => {
+                characters = data;
                 var total = 0;
                 var elem = $('.card-wrapper');
-                data.forEach(element => {
+                characters.forEach(element => {
                     total++;
-                    var id = element.id.innerText;
+                    var id = element.id;
                     elem.append( 
                         $('<div/>')
                             .addClass("col-md-3 card")
@@ -86,20 +88,17 @@
                                     .append($('<p class="card-text" ></p>').text('Species: ' + element.species))
                                     .append($('<p class="card-text" ></p>').text('Status: ' + element.status))
                                     .append($('<p class="card-text" ></p>').text('Likes: ' + element.likes))
-                                    .append($('<button class="btn btn-primary" onclick="update(id)">Like</button>'))
+                                    .append($('<button>Like</button>').on('click', '', function() { like(id); }))
                             )
                     );
                 });
+                $('.loader').hide();
                 $('#totalCharacters').text(total);
             })
-            .catch(error => showAlertSnackbar(error));
-
-            $('.loader').hide();
+            .catch(error => { console.log(error); showAlertSnackbar(error);  $('.loader').hide();});
         }
-        function update(id){
-            console.log(id);
-            var elem = $('.card-wrapper');
-          alert(id);
+        function like(id){
+            likeIt(id);
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>

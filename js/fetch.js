@@ -1,5 +1,5 @@
-var url = "https://characters-api.azurewebsites.net/api/characters/"
-
+// var url = "https://characters-api.azurewebsites.net/api/characters/"
+var url = "https://localhost:44321/api/Characters/"
 function fetchIt(){
     var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
     document.getElementById("charRndId").innerText = rnd;
@@ -51,8 +51,29 @@ function saveIt(){
     });
 }
 
-function updateIt(id){
-    alert('wtf ' + id)
+function likeIt(id){
+    var options = {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'PUT', 
+        body: JSON.stringify({Id: id} ) 
+    };
+
+    fetch(url + 'update/', options)
+    .then((response) => {
+        if(response.status >= 200 && response.status <= 299) {
+            return response.json();
+        } else {
+            throw Error("Filed to update characterwith id: " + id);
+        }
+    })
+    .then(data => showSuccessSnackbar('Successfully liked character'))
+    .catch(error => {
+        // document.getElementById("save").disabled = true;
+        showAlertSnackbar(error);
+    });
 }
 
 function processResponseData(data){
