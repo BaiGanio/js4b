@@ -37,6 +37,7 @@
             <span id="change">... click <span onclick="functionToExecute()">(here)</span> & text will change!</span>
         </h3>
         <h1 class="title">Saved Characters: <span id='totalCharacters'>0</span></h1>
+        <p>Data is fetched from https://characters-api.azurewebsites.net/api/characters/</p>
         <hr>
         <div class="row card-wrapper">
             <!-- https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1 -->
@@ -83,10 +84,10 @@
                                 $('<div/>')
                                     .addClass('card-body')
                                     .append($('<h5 class="card-title"></h5>').text(element.name))
-                                    .append($('<p class="card-text" ></p>').text('Char Id: ' + element.charId))
-                                    .append($('<p class="card-text" ></p>').text('Origin: ' + element.origin))
-                                    .append($('<p class="card-text" ></p>').text('Species: ' + element.species))
-                                    .append($('<p class="card-text" ></p>').text('Status: ' + element.status))
+                                    // .append($('<p class="card-text" ></p>').text('Char Id: ' + element.charId))
+                                    // .append($('<p class="card-text" ></p>').text('Origin: ' + element.origin))
+                                    // .append($('<p class="card-text" ></p>').text('Species: ' + element.species))
+                                    // .append($('<p class="card-text" ></p>').text('Status: ' + element.status))
                                     .append($('<p class="card-text" ></p>').text('Likes: ' + element.likes))
                                     .append($('<button>Like</button>').on('click', '', function() { like(id); }))
                             )
