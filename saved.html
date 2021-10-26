@@ -89,7 +89,7 @@
                                     // .append($('<p class="card-text" ></p>').text('Species: ' + element.species))
                                     // .append($('<p class="card-text" ></p>').text('Status: ' + element.status))
                                     .append($('<p class="card-text" ></p>').text('Likes: ' + element.likes))
-                                    .append($('<button>Like</button>').on('click', '', function() { like(id); }))
+                                    .append($('<button>Like</button>').on('click', '', function() { like(element); }))
                             )
                     );
                 });
@@ -98,8 +98,10 @@
             })
             .catch(error => { console.log(error); showAlertSnackbar(error);  $('.loader').hide();});
         }
-        function like(id){
-            likeIt(id);
+        function like(element){
+            $('.loader').show();
+            likeIt(element);
+            $('.loader').hide();
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
