@@ -7,11 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/snackbar.css" media="screen" />
-    
+    <link rel="stylesheet" type="text/css" href="css/loader.css" media="screen" />
     <title>JS4B | Liked</title>
 </head>
 
-<body>
+<body onload="fetchLiked()">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -39,13 +39,15 @@
             <thead>
             <tr>
                 <th scope="col">Char Id</th>
+                <th scope="col">Avatar</th>
                 <th scope="col">Name</th>
-                <th scope="col">Region</th>
+                <th scope="col">Origin</th>
+                <th scope="col">Status</th>
                 <th scope="col">Likes</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
+            <tbody id='table-body'>
+            <!-- <tr>
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
@@ -62,7 +64,7 @@
                 <td>Larry the Bird</td>
                 <td>wtf</td>
                 <td>@twitter</td>
-            </tr>
+            </tr> -->
             </tbody>
         </table>
 
@@ -70,9 +72,16 @@
             <p>&copy; JS4B App v 0.1 | Pure JS + Bootstrap sugar</p>
             <p>Developed by <a id="author" target="_blank" href="https://github.com/BaiGanio">L. Kikov</a></p>
         </footer>
+
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
     </div>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/fetch.js"></script>
     <script type="text/javascript" src="js/snackbar.js"></script>
     <script>
@@ -80,11 +89,44 @@
             document.getElementById("change").innerText = "& jQuery for stuffs";
             showSnackbar("You successfully changed the text ;)");
         }
-        function fetchData() {
-            var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
-            document.getElementById("charRndId").innerText = rnd;
-            var url = "https://rickandmortyapi.com/api/character/" + rnd;
-            fetchIt(url);
+        function fetchLiked() {
+            $('.loader').show();
+            fetch( 'https://characters-api.azurewebsites.net/api/Characters')
+            .then(response => response.json())
+            .then((data) => {
+                characters = data;
+                var total = 0;
+                var elem = $('#table-body');
+                characters.forEach(element => {
+                    total++;
+                    var id = element.id;
+                    elem.append( 
+                        $('<tr/>')
+                            .append($('<th class="scope="row"" ></th>').text(element.charId))
+                            .append($(' <td/>').append($('<img class="avatar-table"></img>').attr('src', element.avatar)))
+                            .append($(' <td></td>').text(element.name))
+                            .append($(' <td></td>').text(element.origin))
+                            .append($(' <td></td>').text(element.status))
+                            .append($(' <td></td>').text(element.likes))
+                         
+                            // .append($('<img class="avatar"></img>').attr('src', element.avatar))
+                            // .append(
+                            //     $('<div/>')
+                            //         .addClass('card-body')
+                            //         .append($('<h5 class="card-title"></h5>').text(element.name))
+                            //         // .append($('<p class="card-text" ></p>').text('Char Id: ' + element.charId))
+                            //         // .append($('<p class="card-text" ></p>').text('Origin: ' + element.origin))
+                            //         // .append($('<p class="card-text" ></p>').text('Species: ' + element.species))
+                            //         // .append($('<p class="card-text" ></p>').text('Status: ' + element.status))
+                            //         .append($('<p class="card-text" ></p>').text('Likes: ' + element.likes))
+                            //         .append($('<button>Like</button>').on('click', '', function() { like(element); }))
+                            // )
+                    );
+                });
+                $('.loader').hide();
+                // $('#totalCharacters').text(total);
+            })
+            .catch(error => { console.log(error); });
         }
     </script>
 </body>

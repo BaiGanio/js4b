@@ -26,6 +26,10 @@ body{
     width: 60%;
     margin: 0 auto;
 }
+.avatar-table{
+    width: 20%;
+    margin: 0 auto;
+}
 .card-wrapper{
     margin-top: 10px;
 }
