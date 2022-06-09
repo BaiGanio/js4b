@@ -1,10 +1,12 @@
-var url = "https://characters-api.azurewebsites.net/api/characters/"
-// var url = "https://localhost:44321/api/Characters/"
-function fetchIt(){
+var apiUrl = "https://characters-api.azurewebsites.net/api/characters/"
+// var apiUrl = "https://localhost:44321/api/Characters/"
+var rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
+
+function fetchIt(){    
     var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
     document.getElementById("charRndId").innerText = rnd;
-    url +=  rnd;
-    fetch(url)
+    
+    fetch(rickAndMortyApiUrl + rnd)
     .then(response => response.json())
     .then((data) => {
         if(data.error){
@@ -18,6 +20,7 @@ function fetchIt(){
 }
 
 function saveIt(){
+    document.getElementById("save").disabled = true;
     var params = {
         CharId: document.getElementById("charId").innerText,
         Name: document.getElementById("name").innerText,
@@ -36,7 +39,7 @@ function saveIt(){
         body: JSON.stringify( params )  
     };
 
-    fetch(url, options)
+    fetch(apiUrl, options)
     .then((response) => {
         if(response.status >= 200 && response.status <= 299) {
             return response.json();
@@ -44,9 +47,8 @@ function saveIt(){
             throw Error("Character already saved.");
         }
     })
-    .then(data => showSuccessSnackbar('Successfully added character'))
-    .catch(error => {
-        document.getElementById("save").disabled = true;
+    .then(data => showSuccessSnackbar('Successfully saved character ' + data.name))
+    .catch(error => {        
         showAlertSnackbar(error);
     });
 }
@@ -58,19 +60,19 @@ function likeIt(element){
             'Content-Type': 'application/json'
         },
         method: 'PUT', 
-        body: JSON.stringify({Id: element.id} ) 
+        body: JSON.stringify({Id: element.id}) 
     };
 
-    fetch(url + 'update/', options)
+    fetch(apiUrl + 'update/', options)
     .then((response) => {
         if(response.status >= 200 && response.status <= 299) {
             return response.json();
         } else {
-            throw Error("Filed to update characterwith id: " + element.id);
+            throw Error("Filed to update character with id: " + element.id);
         }
     })
     .then(data => {
-         showSuccessSnackbar(data + ' Refresh the page!');
+        showSuccessSnackbar(data);
     })
     .catch(error => {
         showAlertSnackbar(error);

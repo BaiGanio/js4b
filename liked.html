@@ -91,7 +91,7 @@
         }
         function fetchLiked() {
             $('.loader').show();
-            fetch( 'https://characters-api.azurewebsites.net/api/Characters')
+            fetch('https://characters-api.azurewebsites.net/api/Characters')
             .then(response => response.json())
             .then((data) => {
                 characters = data;
