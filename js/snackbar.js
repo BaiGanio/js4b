@@ -1,8 +1,8 @@
 function showSnackbar(message) {
     var x = document.getElementById("snackbar");
     x.innerText = message;
-    x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4000);
+    x.className = "show show-index-snackbar";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 40000000);
 }
 function showAlertSnackbar(message) {
     var x = document.getElementById("snackbar");

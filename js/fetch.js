@@ -1,9 +1,8 @@
 var apiUrl = "https://characters-api.azurewebsites.net/api/characters/"
-// var apiUrl = "https://localhost:44321/api/Characters/"
 var rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
 
 function fetchIt(){    
-    var rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
+    let rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
     document.getElementById("charRndId").innerText = rnd;
     
     fetch(rickAndMortyApiUrl + rnd)
@@ -21,7 +20,7 @@ function fetchIt(){
 
 function saveIt(){
     document.getElementById("save").disabled = true;
-    var params = {
+    const params = {
         CharId: document.getElementById("charId").innerText,
         Name: document.getElementById("name").innerText,
         Avatar : document.getElementById("avatar").src,
@@ -30,7 +29,7 @@ function saveIt(){
         Status : document.getElementById("status").innerText
     };
     
-    var options = {
+    const options = {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -39,18 +38,12 @@ function saveIt(){
         body: JSON.stringify( params )  
     };
 
-    fetch(apiUrl, options)
-    .then((response) => {
-        if(response.status >= 200 && response.status <= 299) {
-            return response.json();
-        } else {
-            throw Error("Character already saved.");
-        }
+    fetch(apiUrl, options).then((response) => {
+        if(response.status >= 200 && response.status <= 299) { return response.json(); } 
+        else { throw Error("Character already saved."); }
     })
     .then(data => showSuccessSnackbar('Successfully saved character ' + data.name))
-    .catch(error => {        
-        showAlertSnackbar(error);
-    });
+    .catch(error => { showAlertSnackbar(error); });
 }
 
 function likeIt(element){
