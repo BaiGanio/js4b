@@ -3,7 +3,6 @@ var rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
 
 function fetchIt(){    
     let rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
-    document.getElementById("charRndId").innerText = rnd;
     
     fetch(rickAndMortyApiUrl + rnd)
     .then(response => response.json())

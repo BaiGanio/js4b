@@ -34,16 +34,13 @@ body{
     margin-top: 10px;
 }
 .card{
-    width: 20rem; 
+    width: 18rem; 
     margin: 0 auto; 
     padding: 10px; 
     margin-top: 15px;
 }
 .card-text{
     text-align: left;
-}
-.card-text > span{
-    text-align: center;
 }
 footer{
     margin-top: 80px;

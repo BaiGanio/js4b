@@ -32,13 +32,8 @@
 
     <div class="wrapper container-fluid">
 
-        <h3>This is an example of using Bootstrap for styling
-            <span id="change">... click <span onclick="functionToExecute()">(here)</span> & text will change!</span>
-        </h3>
+        <h3>This is an example of using Bootstrap for styling & fetching data from https://rickandmortyapi.com/api/</h3>
         
-        <button class="btn btn-outline-primary btn-sm" onclick="fetchData()">Fetch Data</button>
-        from <span>https://rickandmortyapi.com/api/character/</span><span id="charRndId"></span>    
-
         <div class="card-wrapper">
             <div id="hide" class="card">
                 <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
@@ -48,7 +43,8 @@
                     <p class="card-text">Origin: <span id="origin">N/A</span></p>
                     <p class="card-text">Species: <span id="species">N/A</span></p>
                     <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="save" class="btn btn-primary" onclick="saveData()" disabled>Save</button>
+                    <button id="save" class="btn btn-primary btn-sm" onclick="saveData()" disabled>Save</button>  
+                    <button class="btn btn-outline-primary btn-sm" onclick="fetchData()">Fetch Data</button>
                 </div>
             </div>
         </div> 
@@ -70,10 +66,6 @@
     <script type="text/javascript" src="js/fetch.js"></script>
     <script type="text/javascript" src="js/snackbar.js"></script>
     <script>
-        function  functionToExecute(){
-            document.getElementById("change").innerText = "& fetching data from external API";
-            showSnackbar("You successfully changed the text ;)");
-        }
         function fetchData() {
             fetchIt();
         }
