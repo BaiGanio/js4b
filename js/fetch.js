@@ -1,14 +1,17 @@
-var apiUrl = "https://characters-api.azurewebsites.net/api/characters/"
+var apiUrl1 = "https://test-bgapi.azurewebsites.net/api/characters/";
+var apiUrl = "https://localhost:44364/api/characters/"
 var rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
 
 function fetchIt(){    
     let rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
     
+    document.querySelector('.loader').style.display = 'block';
+    
     fetch(rickAndMortyApiUrl + rnd)
     .then(response => response.json())
     .then((data) => {
         if(data.error){
-            showAlertSnackbar(data.error);
+            showAlertSnackbar(data.error + `. ID: ${rnd} does not exist in Rick and Morty API database.`);
             clearElements();
         }else{
             processResponseData(data);
@@ -20,7 +23,7 @@ function fetchIt(){
 function saveIt(){
     document.getElementById("save").disabled = true;
     const params = {
-        CharId: document.getElementById("charId").innerText,
+        CharacterId: document.getElementById("charId").innerText,
         Name: document.getElementById("name").innerText,
         Avatar : document.getElementById("avatar").src,
         Origin : document.getElementById("origin").innerText,
@@ -36,12 +39,11 @@ function saveIt(){
         method: 'POST',
         body: JSON.stringify( params )  
     };
-
     fetch(apiUrl, options).then((response) => {
         if(response.status >= 200 && response.status <= 299) { return response.json(); } 
         else { throw Error("Character already saved."); }
     })
-    .then(data => showSuccessSnackbar('Successfully saved character ' + data.name))
+    .then(data => {showSuccessSnackbar(data)})
     .catch(error => { showAlertSnackbar(error); });
 }
 

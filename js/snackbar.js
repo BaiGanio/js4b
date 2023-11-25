@@ -14,5 +14,5 @@ function showSuccessSnackbar(message){
     var x = document.getElementById("snackbar");
     x.innerText = message;
     x.className = "show show-success";
-    setTimeout(function(){ x.className = x.className.replace("show show-success", ""); }, 4000);
+    setTimeout(function(){ x.className = x.className.replace("show show-success", ""); }, 8000);
 }
