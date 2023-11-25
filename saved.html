@@ -67,8 +67,8 @@
         }
         function fetchSaved() {
             $('.loader').show();
-            // fetch('https://test-bgapi.azurewebsites.net/api/characters/')
-            fetch('https://localhost:44364/api/characters/')
+            fetch('https://test-bgapi.azurewebsites.net/api/characters/')
+            //fetch('https://localhost:44364/api/characters/')
             .then(response => response.json())
             .then((data) => {
                 characters = data;

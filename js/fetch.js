@@ -1,5 +1,5 @@
-var apiUrl1 = "https://test-bgapi.azurewebsites.net/api/characters/";
-var apiUrl = "https://localhost:44364/api/characters/"
+var apiUrl = "https://test-bgapi.azurewebsites.net/api/characters/";
+var apiUrl1 = "https://localhost:44364/api/characters/"
 var rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
 
 function fetchIt(){    
