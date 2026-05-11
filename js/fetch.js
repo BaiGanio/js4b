@@ -5,7 +5,18 @@ var rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
 function fetchIt(){    
     let rnd = Math.floor(Math.random() * (1000 - 1)) + 1;
     
-    document.querySelector('.loader').style.display = 'block';
+    var loaderStart = Date.now();
+    var loader = document.querySelector('.loader');
+    loader.style.display = 'block';
+    // Force CSS animation restart (animations freeze after display:none)
+    var rings = loader.querySelectorAll('.inner');
+    for (var i = 0; i < rings.length; i++) {
+        rings[i].style.animation = 'none';
+    }
+    void loader.offsetHeight;
+    for (var i = 0; i < rings.length; i++) {
+        rings[i].style.animation = '';
+    }
     
     fetch(rickAndMortyApiUrl + rnd)
     .then(response => response.json())
@@ -17,7 +28,14 @@ function fetchIt(){
             processResponseData(data);
         }
     })
-    .catch(error => showAlertSnackbar(error));
+    .catch(error => showAlertSnackbar(error))
+    .finally(() => {
+        var elapsed = Date.now() - loaderStart;
+        var remaining = Math.max(0, 1000 - elapsed);
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none';
+        }, remaining);
+    });
 }
 
 function saveIt(){
@@ -79,7 +97,17 @@ function processResponseData(data){
     document.getElementById("avatar").src = data.image;
     document.getElementById("origin").innerText = data.origin.name;
     document.getElementById("species").innerText = data.species;
-    document.getElementById("status").innerText = data.status;
+
+    var statusEl = document.getElementById("status");
+    statusEl.innerText = data.status;
+    statusEl.className = '';
+    if (data.status === 'Alive') {
+        statusEl.classList.add('status-alive');
+    } else if (data.status === 'Dead') {
+        statusEl.classList.add('status-dead');
+    } else {
+        statusEl.classList.add('status-unknown');
+    }
 
     document.getElementById("save").disabled = false;
 }
@@ -91,6 +119,7 @@ function clearElements(){
     document.getElementById("origin").innerText =  "N/A";
     document.getElementById("species").innerText =  "N/A";
     document.getElementById("status").innerText =  "N/A";
+    document.getElementById("status").className = '';
 
     document.getElementById("save").disabled = true;
 }
