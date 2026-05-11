@@ -13,7 +13,7 @@
 
 <body onload="fetchLiked()">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">JS4B</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,9 @@
                 <a class="nav-link" href="saved.html">Saved</a>
                 <a class="nav-link" href="liked.html">Liked</a>
             </div>
+            <button class="btn btn-sm theme-toggle ms-auto" onclick="toggleTheme()" title="Toggle theme">
+                <i class="bi bi-moon-fill"></i>
+            </button>
             </div>
         </div>
     </nav>
@@ -34,6 +37,9 @@
         <h3>This is an example of fetching data from external API & using Bootstrap table for styling</h3>
         <h1 class="title">Liked Characters</h1>
         <hr>
+        <div class="search-wrapper">
+            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search characters..." oninput="filterTable()">
+        </div>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -79,6 +85,7 @@
         </div>
     </div>
    
+    <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/fetch.js"></script>
@@ -103,7 +110,7 @@
                     elem.append( 
                         $('<tr/>')
                             .append($('<th class="scope="row"" ></th>').text(element.charId))
-                            .append($(' <td/>').append($('<img class="avatar-table"></img>').attr('src', element.avatar)))
+                            .append($(' <td/>').append($('<img class="avatar-table"></img>').attr('src', element.avatar).attr('onerror', "this.src='images/no-image.jpg'")))
                             .append($(' <td></td>').text(element.name))
                             .append($(' <td></td>').text(element.origin))
                             .append($(' <td></td>').text(element.status))
@@ -127,6 +134,15 @@
                 // $('#totalCharacters').text(total);
             })
             .catch(error => { console.log(error); });
+        }
+        function filterTable() {
+            var query = document.getElementById('searchInput').value.toLowerCase();
+            var rows = document.querySelectorAll('#table-body tr');
+            rows.forEach(function(row) {
+                var tds = row.querySelectorAll('td');
+                var name = tds[1] ? tds[1].textContent.toLowerCase() : '';
+                row.style.display = name.includes(query) ? '' : 'none';
+            });
         }
     </script>
 </body>

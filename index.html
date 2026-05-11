@@ -8,46 +8,74 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/loader.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/snackbar.css" media="screen" />
-    
+
     <title>JS4B | Home</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">JS4B</a>
+            <a class="nav-link" href="#" onclick="clearElements(); return false;">JS4B</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="#" onclick="clearElements(); return false;">Home</a>
                 <a class="nav-link" href="saved.html">Saved</a>
                 <a class="nav-link" href="liked.html">Liked</a>
             </div>
+            <button class="btn btn-sm theme-toggle ms-auto" onclick="toggleTheme()" title="Toggle theme">
+                <i class="bi bi-moon-fill"></i>
+            </button>
             </div>
         </div>
     </nav>
 
-    <div class="wrapper container-fluid">
+    <section class="hero">
+        <div class="container">
+            <!-- Default hero splash -->
+            <div class="hero-default">
+                <img src="images/rick-and-morty.jpg" alt="Rick and Morty" class="hero-image">
+                <h1 class="hero-title">Rick &amp; Morty</h1>
+                <p class="hero-subtitle">Characters Explorer</p>
+                <div class="hero-divider"></div>
+                <button class="btn hero-fetch-btn" onclick="fetchData()">Fetch Character</button>
+            </div>
 
-        <h3>This is an example of using Bootstrap for styling & fetching data from https://rickandmortyapi.com/api/</h3>
-        
-        <div class="card-wrapper">
-            <div id="hide" class="card">
-                <img id="avatar" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fdramatic-landscape-7.jpg&f=1&nofb=1" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title" id="name">Card title</h5>
-                    <p class="card-text">Char Id: <span id="charId">N/A</span></p>
-                    <p class="card-text">Origin: <span id="origin">N/A</span></p>
-                    <p class="card-text">Species: <span id="species">N/A</span></p>
-                    <p class="card-text">Status: <span  id="status">N/A</span></p>
-                    <button id="save" class="btn btn-primary btn-sm" onclick="saveData()" disabled>Save</button>  
-                    <button class="btn btn-outline-primary btn-sm" onclick="fetchData()">Fetch Data</button>
+            <!-- Character card replacing the hero -->
+            <div class="hero-character" style="display:none">
+                <img id="heroAvatar" src="images/no-image.jpg" class="hero-char-avatar" alt="Character avatar" onerror="this.src='images/no-image.jpg'">
+                <h1 class="hero-title hero-char-name" id="heroName">Character Name</h1>
+                <div class="hero-char-info">
+                    <div class="hero-badge">
+                        <span class="hero-badge-label">ID</span>
+                        <span class="hero-badge-value" id="heroCharId">-</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-label">Origin</span>
+                        <span class="hero-badge-value" id="heroOrigin">-</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-label">Species</span>
+                        <span class="hero-badge-value" id="heroSpecies">-</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge-label">Status</span>
+                        <span class="hero-badge-value" id="heroStatus">-</span>
+                    </div>
+                </div>
+                <div class="hero-char-actions">
+                    <button class="btn btn-sm hero-back-btn" onclick="clearElements()">← Back</button>
+                    <button id="heroSave" class="btn btn-primary btn-sm" onclick="saveData()" disabled>Save</button>
+                    <button class="btn btn-sm hero-fetch-sm" onclick="fetchData()">Fetch Another</button>
                 </div>
             </div>
-        </div> 
+        </div>
+    </section>
+
+    <div class="wrapper container-fluid">
         <footer>
             <p>&copy; JS4B App v 0.1 | Pure JS + Bootstrap sugar</p>
             <p>Developed by <a id="author" target="_blank" href="https://github.com/BaiGanio">L. Kikov</a></p>
@@ -61,7 +89,8 @@
         <div class="inner two"></div>
         <div class="inner three"></div>
     </div>
-    
+
+    <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/fetch.js"></script>
     <script type="text/javascript" src="js/snackbar.js"></script>
@@ -70,8 +99,8 @@
             fetchIt();
         }
         function saveData(){
-            document.getElementById("save").disabled = true;
-            saveIt();           
+            document.getElementById("heroSave").disabled = true;
+            saveIt();
         }
     </script>
 </body>

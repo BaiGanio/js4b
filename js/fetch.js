@@ -39,14 +39,14 @@ function fetchIt(){
 }
 
 function saveIt(){
-    document.getElementById("save").disabled = true;
+    document.getElementById("heroSave").disabled = true;
     const params = {
-        CharacterId: document.getElementById("charId").innerText,
-        Name: document.getElementById("name").innerText,
-        Avatar : document.getElementById("avatar").src,
-        Origin : document.getElementById("origin").innerText,
-        Species : document.getElementById("species").innerText,
-        Status : document.getElementById("status").innerText
+        CharacterId: document.getElementById("heroCharId").innerText,
+        Name: document.getElementById("heroName").innerText,
+        Avatar : document.getElementById("heroAvatar").src,
+        Origin : document.getElementById("heroOrigin").innerText,
+        Species : document.getElementById("heroSpecies").innerText,
+        Status : document.getElementById("heroStatus").innerText
     };
     
     const options = {
@@ -92,15 +92,16 @@ function likeIt(element){
 }
 
 function processResponseData(data){
-    document.getElementById("charId").innerText = data.id;
-    document.getElementById("name").innerText = data.name;
-    document.getElementById("avatar").src = data.image;
-    document.getElementById("origin").innerText = data.origin.name;
-    document.getElementById("species").innerText = data.species;
+    // Populate hero character card
+    document.getElementById("heroCharId").innerText = data.id;
+    document.getElementById("heroName").innerText = data.name;
+    document.getElementById("heroAvatar").src = data.image;
+    document.getElementById("heroOrigin").innerText = data.origin.name;
+    document.getElementById("heroSpecies").innerText = data.species;
 
-    var statusEl = document.getElementById("status");
+    var statusEl = document.getElementById("heroStatus");
     statusEl.innerText = data.status;
-    statusEl.className = '';
+    statusEl.className = 'hero-badge-value';
     if (data.status === 'Alive') {
         statusEl.classList.add('status-alive');
     } else if (data.status === 'Dead') {
@@ -109,17 +110,52 @@ function processResponseData(data){
         statusEl.classList.add('status-unknown');
     }
 
-    document.getElementById("save").disabled = false;
+    document.getElementById("heroSave").disabled = false;
+
+    // Switch from default hero to character card
+    document.querySelector('.hero-default').style.display = 'none';
+    var heroChar = document.querySelector('.hero-character');
+    heroChar.style.display = 'block';
+
+    // Trigger entrance animation via class (NOT inline style,
+    // so theme-switch animation-duration kills won't interfere).
+    // Remove any stale listener from a previous rapid fetch.
+    if (heroChar._animEndHandler) {
+        heroChar.removeEventListener('animationend', heroChar._animEndHandler);
+        heroChar._animEndHandler = null;
+    }
+    heroChar.classList.remove('hero-char-enter');
+    void heroChar.offsetHeight;  // force reflow to restart animation
+    heroChar.classList.add('hero-char-enter');
+
+    // Clean up the animation class after it finishes
+    heroChar._animEndHandler = function() {
+        heroChar.classList.remove('hero-char-enter');
+        heroChar.removeEventListener('animationend', heroChar._animEndHandler);
+        heroChar._animEndHandler = null;
+    };
+    heroChar.addEventListener('animationend', heroChar._animEndHandler);
 }
 
 function clearElements(){
-    document.getElementById("charId").innerText = "N/A";
-    document.getElementById("name").innerText =  "N/A";
-    document.getElementById("avatar").src = "images/no-image.jpg";
-    document.getElementById("origin").innerText =  "N/A";
-    document.getElementById("species").innerText =  "N/A";
-    document.getElementById("status").innerText =  "N/A";
-    document.getElementById("status").className = '';
+    // Reset hero character card fields
+    document.getElementById("heroCharId").innerText = "-";
+    document.getElementById("heroName").innerText = "Character Name";
+    document.getElementById("heroAvatar").src = "images/no-image.jpg";
+    document.getElementById("heroOrigin").innerText = "-";
+    document.getElementById("heroSpecies").innerText = "-";
+    document.getElementById("heroStatus").innerText = "-";
+    document.getElementById("heroStatus").className = 'hero-badge-value';
 
-    document.getElementById("save").disabled = true;
+    document.getElementById("heroSave").disabled = true;
+
+    // Switch back to default hero splash
+    var heroChar = document.querySelector('.hero-character');
+    if (heroChar._animEndHandler) {
+        heroChar.removeEventListener('animationend', heroChar._animEndHandler);
+        heroChar._animEndHandler = null;
+    }
+    heroChar.classList.remove('hero-char-enter');
+    heroChar.style.display = 'none';
+    document.querySelector('.hero-default').style.display = 'block';
 }
