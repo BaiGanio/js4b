@@ -1,0 +1,29 @@
+[
+    {
+        "char_id": 1,
+        "name": "Rick Sanchez",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        "species": "Human",
+        "origin": "Earth (C-137)",
+        "status": "Alive",
+        "created": "2017-11-04T18:48:46.250Z"
+    },
+    {
+        "char_id": 2,
+        "name": "Morty Smith",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        "species": "Human",
+        "origin": "Earth (C-137)",
+        "status": "Alive",
+        "created": "2017-11-04T18:50:21.651Z"
+    },
+    {
+        "char_id": 3,
+        "name": "Summer Smith",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+        "species": "Human",
+        "origin": "Earth (Replacement Dimension)",
+        "status": "Alive",
+        "created": "2017-11-04T19:09:56.428Z"
+    }
+]
