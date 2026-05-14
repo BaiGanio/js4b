@@ -11,6 +11,7 @@
 *.sln.docstates
 *.env
 *.deepseek/
+*.claude/
 notes/
 
 # User-specific files (MonoDevelop/Xamarin Studio)

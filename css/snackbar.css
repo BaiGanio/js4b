@@ -14,8 +14,8 @@
 }
 #snackbar.show {
     visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 3.5s;
-    animation: fadein 0.5s, fadeout 0.5s 3.5s;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 3.5s forwards;
+    animation: fadein 0.5s, fadeout 0.5s 3.5s forwards;
 }
 #snackbar.show-alert {
     background-color: rgb(233, 15, 15);

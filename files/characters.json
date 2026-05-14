@@ -1,51 +1,145 @@
 [
     {
-        "id": 1,
-        "name": "Rick Sanchez",
-        "avatar": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-        "species": "Human",
-        "origin": "Earth (C-137)",
-        "status": "Alive",
-        "created": "2017-11-04T18:48:46.250Z"
-    },
-    {
-        "id": 2,
-        "name": "Morty Smith",
-        "avatar": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-        "species": "Human",
-        "origin": "Earth (C-137)",
-        "status": "Alive",
-        "created": "2017-11-04T18:50:21.651Z"
-    },
-    {
-        "id": 3,
-        "name": "Summer Smith",
-        "avatar": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
-        "species": "Human",
+        "characterId": "739",
+        "name": "Cirque du Soleil Zumanity Member",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/739.jpeg",
         "origin": "Earth (Replacement Dimension)",
+        "species": "Human",
         "status": "Alive",
-        "created": "2017-11-04T19:09:56.428Z"
+        "gender": "Female",
+        "type": "—",
+        "location": "Earth (Replacement Dimension)"
     },
     {
-        "id": 10,
-        "name": "Alan Rails",
+        "characterId": "604",
+        "name": "Female Scorpion",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/604.jpeg",
+        "origin": "Morty’s Story",
+        "species": "Animal",
         "status": "Dead",
+        "gender": "Female",
+        "type": "Soulless Puppet",
+        "location": "Morty’s Story"
+    },
+    {
+        "characterId": "231",
+        "name": "Morty Rick",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/231.jpeg",
+        "origin": "unknown",
         "species": "Human",
-        "type": "Superhuman (Ghost trains summoner)",
+        "status": "unknown",
         "gender": "Male",
-        "origin": {
-            "name": "unknown",
-            "url": ""
-        },
-        "location": {
-            "name": "Worldender's lair",
-            "url": "https://rickandmortyapi.com/api/location/4"
-        },
-        "image": "https://rickandmortyapi.com/api/character/avatar/10.jpeg",
-        "episode": [
-            "https://rickandmortyapi.com/api/episode/25"
-        ],
-        "url": "https://rickandmortyapi.com/api/character/10",
-        "created": "2017-11-04T20:19:09.017Z"
+        "type": "—",
+        "location": "Citadel of Ricks"
+    },
+    {
+        "characterId": "180",
+        "name": "Jessica",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/180.jpeg",
+        "origin": "Earth (Replacement Dimension)",
+        "species": "Human",
+        "status": "Alive",
+        "gender": "Female",
+        "type": "Time God",
+        "location": "Earth (Replacement Dimension)"
+    },
+    {
+        "characterId": "822",
+        "name": "Young Jerry",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/822.jpeg",
+        "origin": "Earth (Unknown dimension)",
+        "species": "Human",
+        "status": "unknown",
+        "gender": "Male",
+        "type": "—",
+        "location": "Earth (Unknown dimension)"
+    },
+    {
+        "characterId": "273",
+        "name": "Purge Planet Ruler",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/273.jpeg",
+        "origin": "Purge Planet",
+        "species": "Alien",
+        "status": "Dead",
+        "gender": "Male",
+        "type": "Cat-Person",
+        "location": "Purge Planet"
+    },
+    {
+        "characterId": "64",
+        "name": "Chris",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/64.jpeg",
+        "origin": "unknown",
+        "species": "Alien",
+        "status": "Dead",
+        "gender": "unknown",
+        "type": "Organic gun",
+        "location": "Earth (Replacement Dimension)"
+    },
+    {
+        "characterId": "541",
+        "name": "Secretary at Tony's",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/541.jpeg",
+        "origin": "unknown",
+        "species": "Alien",
+        "status": "Alive",
+        "gender": "Female",
+        "type": "—",
+        "location": "Earth (Replacement Dimension)"
+    },
+    {
+        "characterId": "242",
+        "name": "Mr. Meeseeks",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/242.jpeg",
+        "origin": "Mr. Meeseeks Box",
+        "species": "Humanoid",
+        "status": "unknown",
+        "gender": "Male",
+        "type": "Meeseeks",
+        "location": "Earth (Fascist Dimension)"
+    },
+    {
+        "characterId": "521",
+        "name": "Wasp Beth",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/521.jpeg",
+        "origin": "Earth (Wasp Dimension)",
+        "species": "Animal",
+        "status": "Alive",
+        "gender": "Female",
+        "type": "Wasp",
+        "location": "Earth (Wasp Dimension)"
+    },
+    {
+        "characterId": "309",
+        "name": "Scrotian",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/309.jpeg",
+        "origin": "unknown",
+        "species": "Animal",
+        "status": "Alive",
+        "gender": "Male",
+        "type": "Scrotian",
+        "location": "Signus 5 Expanse"
+    },
+    {
+        "characterId": "460",
+        "name": "Traflorkian Journalist",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/460.jpeg",
+        "origin": "unknown",
+        "species": "Alien",
+        "status": "Alive",
+        "gender": "Male",
+        "type": "Traflorkian",
+        "location": "St. Gloopy Noops Hospital"
+    },
+    {
+        "characterId": "461",
+        "name": "Communication's Responsible Rick",
+        "avatar": "https://rickandmortyapi.com/api/character/avatar/461.jpeg",
+        "origin": "unknown",
+        "species": "Human",
+        "status": "Dead",
+        "gender": "Male",
+        "type": "—",
+        "location": "Citadel of Ricks"
     }
 ]

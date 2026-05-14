@@ -10,6 +10,17 @@
     <link rel="stylesheet" type="text/css" href="css/snackbar.css" media="screen" />
 
     <title>JS4B | Home</title>
+    <style>
+        html { background: #0b0c10; }
+        html.light-mode { background: #e8ecf1; }
+    </style>
+    <script>
+        (function() {
+            if (localStorage.getItem('js4b-theme') === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
+        })();
+    </script>
 </head>
 
 <body>
@@ -23,7 +34,6 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="#" onclick="clearElements(); return false;">Home</a>
-                <a class="nav-link" href="saved.html">Saved</a>
                 <a class="nav-link" href="liked.html">Liked</a>
             </div>
             <button class="btn btn-sm theme-toggle ms-auto" onclick="toggleTheme()" title="Toggle theme">
@@ -44,32 +54,50 @@
                 <button class="btn hero-fetch-btn" onclick="fetchData()">Fetch Character</button>
             </div>
 
-            <!-- Character card replacing the hero -->
+            <!-- Character profile card -->
             <div class="hero-character" style="display:none">
-                <img id="heroAvatar" src="images/no-image.jpg" class="hero-char-avatar" alt="Character avatar" onerror="this.src='images/no-image.jpg'">
-                <h1 class="hero-title hero-char-name" id="heroName">Character Name</h1>
-                <div class="hero-char-info">
-                    <div class="hero-badge">
-                        <span class="hero-badge-label">ID</span>
-                        <span class="hero-badge-value" id="heroCharId">-</span>
+                <div class="profile-card">
+                    <div class="profile-avatar-wrap">
+                        <img id="heroAvatar" src="images/no-image.jpg" class="profile-avatar" alt="Character avatar" onerror="this.src='images/no-image.jpg'">
                     </div>
-                    <div class="hero-badge">
-                        <span class="hero-badge-label">Origin</span>
-                        <span class="hero-badge-value" id="heroOrigin">-</span>
+
+                    <h2 class="profile-name" id="heroName">Character Name</h2>
+
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value" id="heroSpecies">-</span>
+                            <span class="profile-stat-label">Species</span>
+                        </div>
+                        <div class="profile-stat-divider"></div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value" id="heroOrigin">-</span>
+                            <span class="profile-stat-label">Origin</span>
+                        </div>
                     </div>
-                    <div class="hero-badge">
-                        <span class="hero-badge-label">Species</span>
-                        <span class="hero-badge-value" id="heroSpecies">-</span>
+
+                    <div class="profile-info-row">
+                        <span class="profile-info-chip" id="heroStatusBadge">
+                            <span id="heroStatus">-</span>
+                        </span>
+                        <span class="profile-info-chip">
+                            <i class="bi bi-person"></i> <span id="heroGender">-</span>
+                        </span>
+                        <span class="profile-info-chip">
+                            <i class="bi bi-pin-map"></i> <span id="heroLocation">-</span>
+                        </span>
                     </div>
-                    <div class="hero-badge">
-                        <span class="hero-badge-label">Status</span>
-                        <span class="hero-badge-value" id="heroStatus">-</span>
+
+                    <!-- Hidden data carriers for likeIt() -->
+                    <span id="heroCharId" style="display:none">-</span>
+                    <span id="heroType" style="display:none">-</span>
+
+                    <div class="profile-actions">
+                        <button id="heroLike" class="btn profile-btn profile-btn-like" onclick="likeData()" disabled>
+                            <i class="bi bi-heart-fill"></i> Like
+                        </button>
+                        <button class="btn profile-btn profile-btn-fetch" onclick="fetchData()">Fetch Another</button>
+                        <button class="btn profile-btn-back" onclick="clearElements()">← Back</button>
                     </div>
-                </div>
-                <div class="hero-char-actions">
-                    <button class="btn btn-sm hero-back-btn" onclick="clearElements()">← Back</button>
-                    <button id="heroSave" class="btn btn-primary btn-sm" onclick="saveData()" disabled>Save</button>
-                    <button class="btn btn-sm hero-fetch-sm" onclick="fetchData()">Fetch Another</button>
                 </div>
             </div>
         </div>
@@ -77,8 +105,8 @@
 
     <div class="wrapper container-fluid">
         <footer>
-            <p>&copy; JS4B App v 0.1 | Pure JS + Bootstrap sugar</p>
-            <p>Developed by <a id="author" target="_blank" href="https://github.com/BaiGanio">L. Kikov</a></p>
+            <p>&copy; JS4B App v 0.2 | Pure JS + Bootstrap sugar</p>
+            <p>Developed by <a id="author" target="_blank" href="https://github.com/BaiGanio">Lyuben Kikov</a></p>
         </footer>
 
         <div id="snackbar"></div>
@@ -98,9 +126,9 @@
         function fetchData() {
             fetchIt();
         }
-        function saveData(){
-            document.getElementById("heroSave").disabled = true;
-            saveIt();
+        function likeData() {
+            document.getElementById("heroLike").disabled = true;
+            likeIt();
         }
     </script>
 </body>
